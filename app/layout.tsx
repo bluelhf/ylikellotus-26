@@ -8,8 +8,8 @@ import { LanguageProvider } from "@/components/hooks/language";
 const lato = Lato({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
-  title: "Ylikelatus 2026",
-  description: "Vuoden 2026 ylikellotus on nyt täällä! Tervetuloa juhlimaan maailman tylsimmille synttäreille.",
+  title: "Ylikellotus 2026",
+  description: "Vuoden 2026 ylikellotus on nyt täällä! Tervetuloa juhlimaan maailman tylsimmille synttäreille. Meillä on pallomeri.",
 };
 
 export default function RootLayout({

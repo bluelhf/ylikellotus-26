@@ -25,7 +25,7 @@ export class Balloon {
         x = Math.random() * 100,
         y: number = Math.random() * 100,
         vx: number = (Math.random() - 0.5) * 10,
-        vy: number = (Math.random() - 1) * 5 - 25,
+        vy: number = (Math.random() - 1) * 5 - 12.5,
     ) {
         this.x = x;
         this.y = y;

@@ -5,6 +5,8 @@ import {KIDE_URL} from "@/app/constants";
 import ExportedImage from 'next-image-export-optimizer'
 import poytaImg from '@/public/assets/wide/pöytä.png'
 import useLanguage from "@/components/hooks/language";
+// @ts-ignore
+import nextConfig from "@/next.config";
 
 export default function TableScene() {
     const { lang, toggleLanguage } = useLanguage();
@@ -57,7 +59,7 @@ export default function TableScene() {
                     </span>
                     </p>
                 </div>
-                <ExportedImage alt="Table" src={poytaImg} className="w-full h-auto" />
+                <ExportedImage alt="Table" src={poytaImg} className="w-full h-auto" basePath={nextConfig.basePath} />
             </div>
         </Scene>
     )

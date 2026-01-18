@@ -11,6 +11,8 @@ import koneImgEnglish from '@/public/assets/wide/koneF2_enkku.png'
 import poydanalusImg from '@/public/assets/wide/pöydänalus.png'
 import useBreakpoint from "@/components/hooks/breakpoint";
 import useLanguage from "@/components/hooks/language";
+// @ts-ignore
+import nextConfig from "@/next.config";
 
 export type WindowKey = "AdPlayer" | "GameOne" | "GameTwo";
 
@@ -45,7 +47,7 @@ export default function ComputerScene() {
             <div className="relative scene-body-xl translate-x-[-50%] left-[50%] ">
                 <div className="@container relative grid place-items-center">
                     <ExportedImage ref={(el) => {if (el) setYTop(el.offsetTop + el.clientTop)}}
-                        alt="Computer" src={lang === "english" ? koneImgEnglish : koneImg} className="w-full h-auto relative -z-10"/>
+                        alt="Computer" src={lang === "english" ? koneImgEnglish : koneImg} className="w-full h-auto relative -z-10" basePath={nextConfig.basePath}/>
                     <div className="absolute left-[37.3%] top-[6.5%] w-[25.7%] h-[40.9%]" data-balloon-spawnable="false">
                         {React.createElement(windowIndex[computerWindow])}
                     </div>
@@ -74,7 +76,7 @@ export default function ComputerScene() {
                     /* TODO: Use top instead of marginTop */
                     marginTop: `calc(${(scrollProgress - yTop) * -0.2}px + ${hasMdBreakpoint ? 12 : 7}%)`
                 }} className="scene-body w-auto h-auto relative -z-20">
-                    <ExportedImage alt="Under Table" src={poydanalusImg} />
+                    <ExportedImage alt="Under Table" src={poydanalusImg} basePath={nextConfig.basePath}/>
                 </div>
             </div>
         </Scene>

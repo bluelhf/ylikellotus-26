@@ -8,6 +8,8 @@ import ExportedImage from 'next-image-export-optimizer'
 import toimistoImg from '@/public/assets/wide/toimisto.png'
 import cubiclesImg from '@/public/assets/wide/cubicles.png'
 import useBreakpoint from "@/components/hooks/breakpoint";
+// @ts-ignore
+import nextConfig from "@/next.config";
 
 export default function OfficeScene() {
     const hasMdBreakpoint = useBreakpoint("md");
@@ -35,14 +37,14 @@ export default function OfficeScene() {
         <Scene className="relative grid place-items-center min-w-[1200px] md:min-w-[2500px]">
             <div ref={officeRef} className="will-change-transform relative scene-body">
                 <div className="grid place-items-center">
-                    <ExportedImage alt="Toimisto" src={toimistoImg} className="col-start-1 row-start-1" />
+                    <ExportedImage alt="Toimisto" src={toimistoImg} className="col-start-1 row-start-1" basePath={nextConfig.basePath} />
                     <div className="grid col-start-1 row-start-1 !min-h-[0.85em] md:!min-h-[1.7em] !min-w-[9%] -mb-[-29.8%] ml-[1.1%]">
                         <Countdown targetDate={START_DATE} />
                     </div>
                 </div>
             </div>
             <div ref={cubicleRef} className="absolute scene-body top-[300px] md:top-[500px]">
-                <ExportedImage alt="Cubicles" src={cubiclesImg} />
+                <ExportedImage alt="Cubicles" src={cubiclesImg} basePath={nextConfig.basePath}/>
             </div>
         </Scene>
     )

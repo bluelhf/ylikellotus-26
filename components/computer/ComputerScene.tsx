@@ -70,7 +70,7 @@ export default function ComputerScene() {
                 <a
                     title="Osta VIP-lippu" data-balloon-spawnable="false"
                     className="absolute left-[53.75%] top-[2.5%] w-[6%] h-[2.5%] translate-y-[-15%] cursor-pointer flex flex-col justify-center"
-                    href={`/exe-instructions${lang === "english" ? "#english" : ""}`}>
+                    href={`${nextConfig.basePath}/exe-instructions${lang === "english" ? "#english" : ""}`}>
                 </a>
                 <div style={{
                     /* TODO: Use top instead of marginTop */

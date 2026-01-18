@@ -93,7 +93,7 @@ export default function ExeInstructions() {
                     <strong>Please submit the video file by email to ylikellotus (at) tietokilta.fi by 22 January.</strong>
                 </p>
                 <p>
-                    By submitting the application, you accept the <a data-balloon-spawnable="false" className="text-blue-500" href="/exe-terms">terms and conditions</a>.
+                    By submitting the application, you accept the <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">terms and conditions</a>.
                 </p>
             </section>
         </div>

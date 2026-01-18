@@ -4,6 +4,8 @@ import React, {useEffect, useState} from "react";
 import useBalloons from "@/components/balloons/hooks/balloons";
 import useMousePosition from "@/components/balloons/hooks/mousePosition";
 import {Balloon} from "@/components/balloons/Balloon";
+// @ts-ignore
+import nextConfig from "@/next.config";
 
 type BalloonWrapperProps = {
     children: React.ReactNode
@@ -82,7 +84,7 @@ export default function BalloonWrapper({ children }: BalloonWrapperProps) {
                     <div className="fixed will-change-transform z-10 w-16 pointer-events-none" key={index} style={{left: `${balloon.x}vw`, top: `${balloon.y}vh`}}>
                         <div className="relative will-change-transform flex justify-center" style={{transform: "translate(-50%, -20%)"}}>
                             <img ref={clearIfOffscreen(balloon)}
-                                 src={`/assets/ilmapallo1.gif?${index}` /*break cache so the gifs can desync and it looks better*/} className="relative will-change-transform animate-appear"
+                                 src={`${nextConfig.basePath}/assets/ilmapallo1.gif?${index}` /*break cache so the gifs can desync and it looks better*/} className="relative will-change-transform animate-appear"
                                  alt="Balloon"
                             ></img>
                         </div>

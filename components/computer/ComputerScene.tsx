@@ -53,22 +53,22 @@ export default function ComputerScene() {
                     </div>
                 </div>
                 <div
-                    title="Katso mainosvideo" data-balloon-spawnable="false"
+                    title="Katso mainosvideo" data-balloon-spawnable="true"
                     className="absolute left-[37.25%] top-[2.5%] w-[5.5%] h-[2.5%] translate-y-[-15%] cursor-pointer flex flex-col justify-center"
                     onClick={() => setComputerWindow("AdPlayer")}>
                 </div>
                 <div
-                    title="Pelaa peliä" data-balloon-spawnable="false"
+                    title="Pelaa peliä" data-balloon-spawnable="true"
                     className="absolute left-[42.75%] top-[2.5%] w-[5.5%] h-[2.5%] translate-y-[-15%] cursor-pointer flex flex-col justify-center"
                     onClick={() => setComputerWindow("GameOne")}>
                 </div>
                 <div
-                    title="Pelaa toista peliä" data-balloon-spawnable="false"
+                    title="Pelaa toista peliä" data-balloon-spawnable="true"
                     className="absolute left-[48.25%] top-[2.5%] w-[5.5%] h-[2.5%] translate-y-[-15%] cursor-pointer flex flex-col justify-center"
                     onClick={() => setComputerWindow("GameTwo")}>
                 </div>
                 <a
-                    title="Osta VIP-lippu" data-balloon-spawnable="false"
+                    title="Osta VIP-lippu" data-balloon-spawnable="true"
                     className="absolute left-[53.75%] top-[2.5%] w-[6%] h-[2.5%] translate-y-[-15%] cursor-pointer flex flex-col justify-center"
                     href={`${nextConfig.basePath}/exe-instructions${lang === "english" ? "#english" : ""}`}>
                 </a>

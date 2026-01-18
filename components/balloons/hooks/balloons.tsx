@@ -16,7 +16,7 @@ export default function useBalloons() {
 
             const wind = (balloon: Balloon) => ({
                 dx: Math.sin(now / 2000) * 0.005,
-                dy: Math.abs(balloon.vy) * -0.0001 * Math.random() - 0.3
+                dy: Math.abs(balloon.vy) * -0.0001 * Math.random() - 0.6
             });
 
             for (let i = balloons.length - 1; i >= 0; i--) {

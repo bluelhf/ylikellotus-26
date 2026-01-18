@@ -4,6 +4,7 @@ import { Scene } from "./Scene";
 import {KIDE_URL} from "@/app/constants";
 import ExportedImage from 'next-image-export-optimizer'
 import poytaImg from '@/public/assets/wide/pöytä.png'
+import poytaImgEnglish from '@/public/assets/wide/pöytäF1_enkku.png'
 import useLanguage from "@/components/hooks/language";
 // @ts-ignore
 import nextConfig from "@/next.config";
@@ -49,6 +50,8 @@ export default function TableScene() {
 
     return (
         <Scene className="translate-y-[-5dvw] h-full">
+            { /* preloads the image for the other language so the swap is smooth */ }
+            <ExportedImage src={lang === "english" ? poytaImg : poytaImgEnglish} alt={"Hidden preload image"} basePath={nextConfig.basePath} className="absolute hidden"></ExportedImage>
             { /* TODO: ensure this translateY is correct; it should prevent a blank space between the office and table scenes, even on ultrawide aspect ratios */}
             <div className="relative scene-body translate-x-[-50%] left-[50%]">
                 <div data-balloon-spawnable="false" className="absolute left-[59%] top-[15%] w-[16.5%] h-[30%] origin-top-left rotate-[20deg]" style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 42.5%, 14.1% 37.2%, 0% 23%)", containerType: "inline-size" }}>
@@ -59,7 +62,7 @@ export default function TableScene() {
                     </span>
                     </p>
                 </div>
-                <ExportedImage alt="Table" src={poytaImg} className="w-full h-auto" basePath={nextConfig.basePath} />
+                <ExportedImage alt="Table" src={lang === "english" ? poytaImgEnglish : poytaImg} className="w-full h-auto" basePath={nextConfig.basePath} />
             </div>
         </Scene>
     )

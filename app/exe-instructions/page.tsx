@@ -44,7 +44,7 @@ export default function ExeInstructions() {
                     Videohakemus toimii osana kokonaisarviointia, ja sen avulla pyritään tunnistamaan hakijat, joiden tausta, arvot ja motivaatio vastaavat EXECUTIVE-tason odotuksia.
                 </p>
                 <p className="py-8">
-                    <strong>Toimita videotiedosto sähköpostiin ylikellotus (at) tietokilta.fi 22.1. mennessä!</strong>
+                    <strong>Toimita videotiedosto sähköpostiin ylikellotus (at) tietokilta.fi 31.1. mennessä!</strong>
                 </p>
                 <p>
                     Lähettämällä hakemuksen hyväksyt <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">sopimusehdot</a>.
@@ -90,7 +90,7 @@ export default function ExeInstructions() {
                     The video application is part of the overall evaluation process and is used to identify applicants whose background, values, and motivation meet EXECUTIVE-level expectations.
                 </p>
                 <p className="py-8">
-                    <strong>Please submit the video file by email to ylikellotus (at) tietokilta.fi by 22 January.</strong>
+                    <strong>Please submit the video file by email to ylikellotus (at) tietokilta.fi by 31 January.</strong>
                 </p>
                 <p>
                     By submitting the application, you accept the <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">terms and conditions</a>.

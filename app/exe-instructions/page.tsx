@@ -47,7 +47,7 @@ export default function ExeInstructions() {
                     <strong>Toimita videotiedosto sähköpostiin ylikellotus (at) tietokilta.fi 22.1. mennessä!</strong>
                 </p>
                 <p>
-                    Lähettämällä hakemuksen hyväksyt <a data-balloon-spawnable="false" className="text-blue-500" href="/exe-terms">sopimusehdot</a>.
+                    Lähettämällä hakemuksen hyväksyt <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">sopimusehdot</a>.
                 </p>
             </section>
             <section id="english">

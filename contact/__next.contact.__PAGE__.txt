@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
 2:I[97367,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 3:"$Sreact.suspense"
-0:{"buildId":"QGJ61Ykgm3EMaJfm0yQMN","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"max-w-5xl mx-auto px-4 sm:px-6","children":[["$","p",null,{"children":"no juuh tota se Tuukka Moilanen nii silt voi salee kysyy"}],["$","p",null,{"children":"kävisit kampuksella nii tuntisit"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"QsU6Z8QQhMiMOVYg6HwSm","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"max-w-5xl mx-auto px-4 sm:px-6","children":[["$","p",null,{"children":"no juuh tota se Tuukka Moilanen nii silt voi salee kysyy"}],["$","p",null,{"children":"kävisit kampuksella nii tuntisit"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null

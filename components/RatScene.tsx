@@ -20,7 +20,7 @@ export default function RatScene() {
                         src={ratImg} basePath={nextConfig.basePath}
                         alt="Rat"
                         className="max-h-[40vh] w-[40vw] object-contain" />
-                    <a href={KIDE_URL} target="_blank" className="mt-[5vw]" data-balloon-spawnable="false">
+                    <a href={KIDE_URL} target="_blank" className="mt-[5vw]" data-balloon-spawnable="true">
                         <ExportedImage
                             src={lang === "english" ? ostaImgEnglish : ostaImg} basePath={nextConfig.basePath}
                             alt="Buy now"

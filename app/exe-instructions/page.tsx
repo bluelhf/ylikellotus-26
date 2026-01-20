@@ -2,7 +2,7 @@ export default function ExeInstructions() {
     return (
         <div className="mx-auto prose lg:prose-xl max-w-4xl px-4 text-justify [&_p]:my-2">
             <p className="pt-8">
-                <sup>Available in English <a data-balloon-spawnable="false" className="text-blue-500" href="#english">below</a>.</sup>
+                <sup>Available in English <a data-balloon-spawnable="true" className="text-blue-500" href="#english">below</a>.</sup>
             </p>
             <section id="finnish" className="mb-10">
                 <p><strong>Ohjeet EXECUTIVE-lipun videohakemuksen toteuttamiseen</strong></p>
@@ -47,7 +47,7 @@ export default function ExeInstructions() {
                     <strong>Toimita videotiedosto sähköpostiin ylikellotus (at) tietokilta.fi 31.1. mennessä!</strong>
                 </p>
                 <p>
-                    Lähettämällä hakemuksen hyväksyt <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">sopimusehdot</a>.
+                    Lähettämällä hakemuksen hyväksyt <a data-balloon-spawnable="true" className="text-blue-500" href="exe-terms">sopimusehdot</a>.
                 </p>
             </section>
             <section id="english">
@@ -93,7 +93,7 @@ export default function ExeInstructions() {
                     <strong>Please submit the video file by email to ylikellotus (at) tietokilta.fi by 31 January.</strong>
                 </p>
                 <p>
-                    By submitting the application, you accept the <a data-balloon-spawnable="false" className="text-blue-500" href="exe-terms">terms and conditions</a>.
+                    By submitting the application, you accept the <a data-balloon-spawnable="true" className="text-blue-500" href="exe-terms">terms and conditions</a>.
                 </p>
             </section>
         </div>

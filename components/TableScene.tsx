@@ -18,7 +18,7 @@ export default function TableScene() {
             Pahoittelut edellisestä viestistä. Työntekijä on nyt saanut ohjeistuksen käyttäytyä asiallisesti. Viestin tarkoituksena oli kutsua teidät Tietokillan neljäkymmentävuotisjuhliin Servin mökkiin Otaniemeen tänä helmikuun yhdentenätoista päivänä vuotta 2026. Saavuttehan paikalle viimeistään klo 20.00.
             <br /><br />
             {typeof KIDE_URL !== 'undefined'
-                ? <>Lippu: Saatavilla <a className="text-blue-600 inline-block -m-2 p-2" href={KIDE_URL}>Kide.app</a>-sivulta.<br /></>
+                ? <>Lippu: Saatavilla <a className="underline text-blue-600 inline-block -m-2 p-2" href={KIDE_URL}>Kide.app</a> -sivulta.<br /></>
                 : <>Lippu saatavilla pian!<br /><br /></>}
             Teema: Byrokratia<br />
             Pukukoodi: Haalarit ja Business Casual<br />
@@ -54,7 +54,7 @@ export default function TableScene() {
             <ExportedImage src={lang === "english" ? poytaImg : poytaImgEnglish} alt={"Hidden preload image"} basePath={nextConfig.basePath} className="absolute hidden"></ExportedImage>
             { /* TODO: ensure this translateY is correct; it should prevent a blank space between the office and table scenes, even on ultrawide aspect ratios */}
             <div className="relative scene-body translate-x-[-50%] left-[50%]">
-                <div data-balloon-spawnable="false" className="absolute left-[59%] top-[15%] w-[16.5%] h-[30%] origin-top-left rotate-[20deg]" style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 42.5%, 14.1% 37.2%, 0% 23%)", containerType: "inline-size" }}>
+                <div data-balloon-spawnable="true" className="absolute left-[59%] top-[15%] w-[16.5%] h-[30%] origin-top-left rotate-[20deg]" style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 42.5%, 14.1% 37.2%, 0% 23%)", containerType: "inline-size" }}>
                     <p className={`text-[4.6cqw] md:text-[4.8cqw] text-justify font-serif`}>
                         {lang === "english" ? <EnglishText /> : <FinnishText />}<br/>
                         <span data-balloon-spawnable="true" className="absolute bottom-0 cursor-pointer text-blue-500 underline select-none pointer-events-auto" onClick={toggleLanguage}>

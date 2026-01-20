@@ -36,7 +36,7 @@ export default function TableScene() {
             Apologies for the previous unprofessional message. The employee has now been instructed to conduct themselves properly. The purpose of the message was to invite you to Tietokilta's 40th anniversary celebrations at Servin Mökki in Otaniemi on February 11th, 2026. Please arrive by 20:00 at the latest.
             <br /><br />
             {typeof KIDE_URL !== 'undefined'
-                ? <>Tickets: Available at <a className="text-blue-600 inline-block -m-2 p-2" href={KIDE_URL}>Kide.app</a>.<br /></>
+                ? <>Tickets: Available at <a className="underline text-blue-600 inline-block -m-2 p-2" href={KIDE_URL}>Kide.app</a>.<br /></>
                 : <>Tickets available soon!<br /><br /></>}
             Theme: Bureaucracy<br />
             Dress code: Overalls and Business Casual<br />

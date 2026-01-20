@@ -19,8 +19,11 @@ export default function OfficeScene() {
     const cubicleRef = useRef<HTMLDivElement>(null);
     const createScrollListener = (mdBreakpointSnapshot: boolean) => () => {
         const position = window.pageYOffset;
-        if (officeRef.current) officeRef.current.style.transform = `translateY(${position * 0.7}px)`;
-        if (cubicleRef.current) cubicleRef.current.style.top = `${position * 0.5 + (mdBreakpointSnapshot ? 500 : 300)}px`
+        if (officeRef.current) officeRef.current.style.transform = `translateX(-50%) translateY(${position * 0.7}px)`;
+        if (cubicleRef.current) {
+            cubicleRef.current.style.transform = `translateX(-50%) translateY(${position * 0.5}px)`;
+            cubicleRef.current.style.top = `${(mdBreakpointSnapshot ? 500 : 300)}px`;
+        }
     };
 
     useEffect(() => {
@@ -34,8 +37,8 @@ export default function OfficeScene() {
     }, [hasMdBreakpoint]);
 
     return (
-        <Scene className="relative grid place-items-center min-w-[1200px] md:min-w-[2500px]">
-            <div ref={officeRef} className="will-change-transform relative scene-body">
+        <Scene className="relative">
+            <div ref={officeRef} className="will-change-transform relative scene-body left-1/2 -translate-x-1/2 min-w-[1200px] md:min-w-[2500px]" style={{ transform: 'translateX(-50%)' }}>
                 <div className="grid place-items-center">
                     <ExportedImage alt="Toimisto" src={toimistoImg} className="col-start-1 row-start-1" basePath={nextConfig.basePath} />
                     <div className="grid col-start-1 row-start-1 !min-h-[0.85em] md:!min-h-[1.7em] !min-w-[9%] -mb-[-29.8%] ml-[1.1%]">
@@ -43,7 +46,7 @@ export default function OfficeScene() {
                     </div>
                 </div>
             </div>
-            <div ref={cubicleRef} className="absolute scene-body top-[300px] md:top-[500px]">
+            <div ref={cubicleRef} className="absolute scene-body top-[300px] md:top-[500px] left-1/2 -translate-x-1/2 min-w-[1200px] md:min-w-[2500px]" style={{ transform: 'translateX(-50%)' }}>
                 <ExportedImage alt="Cubicles" src={cubiclesImg} basePath={nextConfig.basePath}/>
             </div>
         </Scene>

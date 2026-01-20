@@ -25,11 +25,11 @@
 
 @media (min-width: 1024px) {
     .scene-body {
-        min-width: 1900px;
+        min-width: 2800px;
     }
 
     .scene-body-xl {
         width: 100%;
-        min-width: 2100px;
+        min-width: 3200px;
     }
 }

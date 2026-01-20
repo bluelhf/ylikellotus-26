@@ -1,8 +1,8 @@
 1:"$Sreact.fragment"
-2:I[97367,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"ViewportBoundary"]
-4:I[97367,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"MetadataBoundary"]
+2:I[61852,["/_next/static/chunks/409aed50d4eaaafe.js","/_next/static/chunks/c592c342e179a7df.js"],"ViewportBoundary"]
+4:I[61852,["/_next/static/chunks/409aed50d4eaaafe.js","/_next/static/chunks/c592c342e179a7df.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
-7:I[27201,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"IconMark"]
-0:{"buildId":"QsU6Z8QQhMiMOVYg6HwSm","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+7:I[72100,["/_next/static/chunks/409aed50d4eaaafe.js","/_next/static/chunks/c592c342e179a7df.js"],"IconMark"]
+0:{"buildId":"lT3ZhAV917GA8cIz3VLpo","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-6:[["$","title","0",{"children":"Ylikellotus 2026"}],["$","meta","1",{"name":"description","content":"Vuoden 2026 ylikellotus on nyt täällä! Tervetuloa juhlimaan maailman tylsimmille synttäreille. Meillä on pallomeri."}],["$","link","2",{"rel":"icon","href":"/ylikellotus-26/favicon.ico?favicon.51c23352.ico","sizes":"512x512","type":"image/x-icon"}],["$","$L7","3",{}]]
+6:[["$","title","0",{"children":"Ylikellotus 2026"}],["$","meta","1",{"name":"description","content":"Vuoden 2026 ylikellotus on nyt täällä! Tervetuloa juhlimaan maailman tylsimmille synttäreille. Meillä on pallomeri."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.51c23352.ico","sizes":"512x512","type":"image/x-icon"}],["$","$L7","3",{}]]

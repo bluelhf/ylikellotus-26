@@ -101,7 +101,7 @@ export default function ComputerScene() {
 
 
     const hasLgBreakpoint = useBreakpoint("lg");
-    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.5 : 0.4);
+    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.4 : 0.3);
     const sceneHeight = sceneBottom - sceneTop;
 
     const viewportBottom = scrollProgress + (typeof window !== 'undefined' ? window.innerHeight : 0);

@@ -38,7 +38,7 @@ export default function OfficeScene() {
 
     return (
         <Scene className="relative">
-            <div ref={officeRef} className="will-change-transform relative scene-body left-1/2 -translate-x-1/2 min-w-[1200px] md:min-w-[2500px]" style={{ transform: 'translateX(-50%)' }}>
+            <div ref={officeRef} className="will-change-transform relative scene-body left-1/2 -translate-x-1/2" style={{ transform: 'translateX(-50%)' }}>
                 <div className="grid place-items-center">
                     <ExportedImage alt="Toimisto" src={toimistoImg} className="col-start-1 row-start-1" basePath={nextConfig.basePath} />
                     <div className="grid col-start-1 row-start-1 !min-h-[0.85em] md:!min-h-[1.7em] !min-w-[9%] -mb-[-29.8%] ml-[1.1%]">
@@ -46,7 +46,7 @@ export default function OfficeScene() {
                     </div>
                 </div>
             </div>
-            <div ref={cubicleRef} className="absolute scene-body top-[300px] md:top-[500px] left-1/2 -translate-x-1/2 min-w-[1200px] md:min-w-[2500px]" style={{ transform: 'translateX(-50%)' }}>
+            <div ref={cubicleRef} className="absolute scene-body top-[300px] md:top-[500px] left-1/2 -translate-x-1/2" style={{ transform: 'translateX(-50%)' }}>
                 <ExportedImage alt="Cubicles" src={cubiclesImg} basePath={nextConfig.basePath}/>
             </div>
         </Scene>

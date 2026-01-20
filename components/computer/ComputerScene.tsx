@@ -13,11 +13,11 @@ import ratImg from '@/public/assets/rat.png'
 import ostaImg from '@/public/assets/osta.png'
 import ostaImgEnglish from '@/public/assets/ostaF1_enkku.png'
 import tabMarkerImg from '@/public/assets/tabmarkerF1.png'
-import useBreakpoint from "@/components/hooks/breakpoint";
 import useLanguage from "@/components/hooks/language";
 import {KIDE_URL} from "@/app/constants";
 // @ts-ignore
 import nextConfig from "@/next.config";
+import useBreakpoint from "@/components/hooks/breakpoint";
 
 export type WindowKey = "AdPlayer" | "GameOne" | "GameTwo";
 
@@ -68,7 +68,7 @@ export default function ComputerScene() {
 
     const [scrollProgress, setScrollProgress] = useState(0);
     const onScroll = () => {
-        setScrollProgress(window.pageYOffset);
+        setScrollProgress(window.scrollY);
     };
 
     useEffect(() => {
@@ -79,64 +79,112 @@ export default function ComputerScene() {
         };
     }, []);
 
-    const [yTop, setYTop] = useState(0);
-    const hasMdBreakpoint = useBreakpoint("md");
+    const [sceneTop, setSceneTop] = useState(0);
+    const [yHeight, setYHeight] = useState(0);
+    const computerRef = React.useRef<HTMLDivElement>(null);
     const { lang } = useLanguage();
+
+    const updateDimensions = () => {
+        if (computerRef.current) {
+            const rect = computerRef.current.getBoundingClientRect();
+            const absoluteBottom = rect.bottom + window.pageYOffset;
+            setSceneTop(absoluteBottom);
+            setYHeight(rect.height);
+        }
+    };
+
+    useEffect(() => {
+        updateDimensions();
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+
+
+    const hasLgBreakpoint = useBreakpoint("lg");
+    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.5 : 0.4);
+    const sceneHeight = sceneBottom - sceneTop;
+
+    const viewportBottom = scrollProgress + (typeof window !== 'undefined' ? window.innerHeight : 0);
+    
+    const progress = typeof window !== 'undefined' 
+        ? Math.min(1, Math.max(0, (viewportBottom - sceneTop) / sceneHeight))
+        : 0;
+    console.log("Viewport bottom is at y =", viewportBottom, " scene top is at y =", sceneTop, "progress", progress)
+
+    const underTableScroll = (1 - progress) * 200;
+    const ratBuyNowScroll = -(1 - progress) * 100;
+
     return (
         <Scene className="col-start-1 row-start-1">
-            <div className="relative scene-body-xl translate-x-[-50%] left-[50%] ">
-                <div className="@container relative grid place-items-center">
-                    <ExportedImage ref={(el) => {if (el) setYTop(el.offsetTop + el.clientTop)}}
-                        alt="Computer" src={lang === "english" ? koneImgEnglish : koneImg} className="w-full h-auto relative -z-10" basePath={nextConfig.basePath}/>
-                    <div className="absolute left-[37.3%] top-[6.5%] w-[25.7%] h-[40.9%]" data-balloon-spawnable="true">
-                        {(Object.keys(windowIndex) as WindowKey[]).map((key) => {
-                            const WindowComponent = windowIndex[key];
-                            return (
-                                <div key={key} className={computerWindow === key ? "w-full h-full" : "hidden"}>
-                                    <WindowComponent />
-                                </div>
-                            );
-                        })}
+            <div className="relative scene-body-xl translate-x-[-50%] left-[50%] isolate">
+                <div ref={computerRef} className="relative z-20">
+                    <div className="relative @container grid place-items-center">
+                        <ExportedImage
+                            onLoad={(el) => {
+                                if (el) updateDimensions();
+                            }}
+                            alt="Computer"
+                            src={lang === "english" ? koneImgEnglish : koneImg}
+                            className="w-full h-auto relative"
+                            basePath={nextConfig.basePath}
+                        />
+                        <div className="absolute left-[37.3%] top-[6.5%] w-[25.7%] h-[40.9%]" data-balloon-spawnable="true">
+                            {(Object.keys(windowIndex) as WindowKey[]).map((key) => {
+                                const WindowComponent = windowIndex[key];
+                                return (
+                                    <div key={key} className={computerWindow === key ? "w-full h-full" : "hidden"}>
+                                        <WindowComponent />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="absolute left-[37.25%] top-[4.4%] w-[22.2%] h-[2.7%] translate-y-[-15%] grid grid-cols-[5.4fr_5.75fr_5.5fr_5.75fr]">
+                            <Tab
+                                title={lang === "english" ? "Watch advertisement video" : "Katso mainosvideo"}
+                                isActive={computerWindow === "AdPlayer"}
+                                onClick={() => setComputerWindow("AdPlayer")}
+                            />
+                            <Tab
+                                title={lang === "english" ? "Play game" : "Pelaa peliä"}
+                                isActive={computerWindow === "GameOne"}
+                                onClick={() => setComputerWindow("GameOne")}
+                            />
+                            <Tab
+                                title={lang === "english" ? "Play another game" : "Pelaa toista peliä"}
+                                isActive={computerWindow === "GameTwo"}
+                                onClick={() => setComputerWindow("GameTwo")}
+                            />
+                            <Tab
+                                title={lang === "english" ? "Buy VIP ticket" : "Osta VIP-lippu"}
+                                href={`${nextConfig.basePath}/exe-instructions${lang === "english" ? "#english" : ""}`}
+                                isActive={false}
+                            />
+                        </div>
                     </div>
-                <div className="absolute left-[37.25%] top-[4.4%] w-[22.2%] h-[2.7%] translate-y-[-15%] grid grid-cols-[5.4fr_5.75fr_5.5fr_5.75fr]">
-                    <Tab
-                        title={lang === "english" ? "Watch advertisement video" : "Katso mainosvideo"}
-                        isActive={computerWindow === "AdPlayer"}
-                        onClick={() => setComputerWindow("AdPlayer")}
-                    />
-                    <Tab
-                        title={lang === "english" ? "Play game" : "Pelaa peliä"}
-                        isActive={computerWindow === "GameOne"}
-                        onClick={() => setComputerWindow("GameOne")}
-                    />
-                    <Tab
-                        title={lang === "english" ? "Play another game" : "Pelaa toista peliä"}
-                        isActive={computerWindow === "GameTwo"}
-                        onClick={() => setComputerWindow("GameTwo")}
-                    />
-                    <Tab
-                        title={lang === "english" ? "Buy VIP ticket" : "Osta VIP-lippu"}
-                        href={`${nextConfig.basePath}/exe-instructions${lang === "english" ? "#english" : ""}`}
-                        isActive={false}
-                    />
                 </div>
-                </div>
-                <div style={{
-                    /* TODO: Use top instead of marginTop */
-                    marginTop: `calc(${(scrollProgress - yTop) * -0.2}px + ${hasMdBreakpoint ? 12 : 7}%)`
-                }} className="scene-body w-auto h-auto relative -z-20">
-                    <ExportedImage alt="Under Table" src={poydanalusImg} basePath={nextConfig.basePath}/>
-                    <div className="absolute inset-0 flex justify-end flex-col overflow-visible pointer-events-none z-[5]">
-                        <div className="flex justify-center w-full pointer-events-auto">
-                            <ExportedImage
-                                src={ratImg} basePath={nextConfig.basePath}
-                                alt="Rat"
-                                className="max-h-[40vh] w-[40vw] object-contain" />
-                            <a href={KIDE_URL} target="_blank" className="mt-[5vw]" data-balloon-spawnable="true">
+
+                <div style={{ height: `${sceneHeight}px` }}
+                     className="grid grid-cols-1 grid-rows-1 items-end relative">
+                    <div style={{ transform: `translateY(${underTableScroll}px)` }}
+                         className="col-start-1 row-start-1 w-full z-0">
+                        <ExportedImage alt="Under Table" src={poydanalusImg} basePath={nextConfig.basePath} className="w-full h-auto"/>
+                    </div>
+
+                    <div style={{ transform: `translateY(${ratBuyNowScroll}px)` }}
+                        className="col-start-1 row-start-1 w-1/2 flex justify-end pointer-events-none z-10 self-end">
+                        <ExportedImage src={ratImg} basePath={nextConfig.basePath} alt="Rat" className="max-h-[40vh] w-[40vw] object-contain"/>
+                    </div>
+
+                    <div style={{ transform: `translateY(${ratBuyNowScroll}px)` }}
+                        className="col-start-1 row-start-1 w-1/2 ml-auto flex justify-start pointer-events-none z-30 self-start">
+                        <div className="flex justify-start max-h-[40vh] w-1/2 relative">
+                            <a href={KIDE_URL} target="_blank" className="mt-[5vw] pointer-events-auto" data-balloon-spawnable="true">
                                 <ExportedImage
-                                    src={lang === "english" ? ostaImgEnglish : ostaImg} basePath={nextConfig.basePath}
+                                    src={lang === "english" ? ostaImgEnglish : ostaImg}
+                                    basePath={nextConfig.basePath}
                                     alt="Buy now"
-                                    className="select-none cursor-pointer max-h-[20vh] w-[30vw] object-contain transition-all duration-500 ease-[linear(0,0.013_0.6%,0.05_1.2%,0.2_2.5%,0.949_6.7%,1.2_8.4%,1.286_9.2%,1.35_10%,1.392_10.8%,1.411_11.6%,1.411_12.2%,1.401_12.8%,1.343_14.2%,1.258_15.5%,1.016_18.7%,0.914_20.4%,0.856_21.9%,0.831_23.5%,0.834_24.7%,0.858_26.1%,0.996_30.7%,1.037_32.4%,1.06_33.9%,1.07_35.4%,1.061_37.7%,0.989_43.8%,0.971_47.2%,1.012_59.1%,0.995_70.8%,1)] hover:scale-x-105 hover:scale-y-105 active:scale-x-110 active:scale-y-95" />
+                                    className="select-none cursor-pointer max-h-[20vh] w-[30vw] object-contain transition-all duration-500 ease-[linear(0,0.013_0.6%,0.05_1.2%,0.2_2.5%,0.949_6.7%,1.2_8.4%,1.286_9.2%,1.35_10%,1.392_10.8%,1.411_11.6%,1.411_12.2%,1.401_12.8%,1.343_14.2%,1.258_15.5%,1.016_18.7%,0.914_20.4%,0.856_21.9%,0.831_23.5%,0.834_24.7%,0.858_26.1%,0.996_30.7%,1.037_32.4%,1.06_33.9%,1.07_35.4%,1.061_37.7%,0.989_43.8%,0.971_47.2%,1.012_59.1%,0.995_70.8%,1)] hover:scale-x-105 hover:scale-y-105 active:scale-x-110 active:scale-y-95"
+                                />
                             </a>
                         </div>
                     </div>

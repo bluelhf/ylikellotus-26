@@ -1,9 +1,10 @@
 'use client';
 
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import useBalloons from "@/components/balloons/hooks/balloons";
 import useMousePosition from "@/components/balloons/hooks/mousePosition";
 import {Balloon} from "@/components/balloons/Balloon";
+import { BalloonContext } from "./BalloonContext";
 // @ts-ignore
 import nextConfig from "@/next.config";
 
@@ -34,9 +35,11 @@ export default function BalloonWrapper({ children }: BalloonWrapperProps) {
     const balloonsRef = useBalloons();
     const mousePosition = useMousePosition();
 
-    const spawnBalloon = () => {
-        balloonsRef.current.push(new Balloon(mousePosition.current.x * 100, mousePosition.current.y * 100));
-    }
+    const spawnBalloon = useCallback((x?: number, y?: number) => {
+        const finalX = x !== undefined ? x : mousePosition.current.x * 100;
+        const finalY = y !== undefined ? y : mousePosition.current.y * 100;
+        balloonsRef.current.push(new Balloon(finalX, finalY));
+    }, [mousePosition]);
 
     const clearIfOffscreen = (balloon: Balloon) => {
         return (element: HTMLElement | null) => {
@@ -77,21 +80,23 @@ export default function BalloonWrapper({ children }: BalloonWrapperProps) {
 
 
     return (
-        <div onClick={(event) => {if (event.target instanceof HTMLElement && isSpawnable(event.target)) spawnBalloon()}}>
-            {balloonsRef.current.map((balloon, index) => {
-                // Since we animate 'transform' we need to have a separate container, positioner and image
-                return (
-                    <div className="fixed will-change-transform z-10 w-16 pointer-events-none" key={index} style={{left: `${balloon.x}vw`, top: `${balloon.y}vh`}}>
-                        <div className="relative will-change-transform flex justify-center" style={{transform: "translate(-50%, -20%)"}}>
-                            <img ref={clearIfOffscreen(balloon)}
-                                 src={`${nextConfig.basePath}/assets/ilmapallo1.gif?${index}` /*break cache so the gifs can desync and it looks better*/} className="relative will-change-transform animate-appear"
-                                 alt="Balloon"
-                            ></img>
+        <BalloonContext.Provider value={{ spawnBalloon }}>
+            <div onClick={(event) => {if (event.target instanceof HTMLElement && isSpawnable(event.target)) spawnBalloon()}}>
+                {balloonsRef.current.map((balloon, index) => {
+                    // Since we animate 'transform' we need to have a separate container, positioner and image
+                    return (
+                        <div className="fixed will-change-transform z-10 w-16 pointer-events-none" key={index} style={{left: `${balloon.x}vw`, top: `${balloon.y}vh`}}>
+                            <div className="relative will-change-transform flex justify-center" style={{transform: "translate(-50%, -20%)"}}>
+                                <img ref={clearIfOffscreen(balloon)}
+                                     src={`${nextConfig.basePath}/assets/ilmapallo1.gif?${index}` /*break cache so the gifs can desync and it looks better*/} className="relative will-change-transform animate-appear"
+                                     alt="Balloon"
+                                ></img>
+                            </div>
                         </div>
-                    </div>
-                    )
-            })}
-            {children}
-        </div>
+                        )
+                })}
+                {children}
+            </div>
+        </BalloonContext.Provider>
     )
 }

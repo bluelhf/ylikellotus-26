@@ -1,6 +1,5 @@
 import ComputerScene from "@/components/computer/ComputerScene";
 import OfficeScene from "@/components/OfficeScene";
-import RatScene from "@/components/RatScene";
 import TableScene from "@/components/TableScene";
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
             <TableScene/>
             <div className="grid place-items-end lg:-mt-[900px] md:-mt-[590px] -mt-[275px] grid-rows-[auto]">
                 <ComputerScene/>
-                <RatScene/>
             </div>
         </main>
     );

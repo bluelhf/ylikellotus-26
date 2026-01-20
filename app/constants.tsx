@@ -1,6 +1,6 @@
 import {VideoData} from "@/app/types";
 
-export const KIDE_URL = undefined; // "https://kide.app/events/<insert event>";
+export const KIDE_URL = "https://kide.app/events/2269e299-a3c6-44e3-953a-50d745e25acd";
 export const START_DATE = new Date(2026, 1, 11, 19, 0, 0);
 
 export const VIDEO_DATA: VideoData = {

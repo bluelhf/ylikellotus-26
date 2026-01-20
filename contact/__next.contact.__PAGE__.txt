@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[61852,["/ylikellotus-26/_next/static/chunks/409aed50d4eaaafe.js","/ylikellotus-26/_next/static/chunks/c592c342e179a7df.js"],"OutletBoundary"]
+2:I[61852,["/_next/static/chunks/409aed50d4eaaafe.js","/_next/static/chunks/c592c342e179a7df.js"],"OutletBoundary"]
 3:"$Sreact.suspense"
-0:{"buildId":"bJOeB_fBo-W2drXf0OWN1","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"max-w-5xl mx-auto px-4 sm:px-6","children":[["$","p",null,{"children":"no juuh tota se Tuukka Moilanen nii silt voi salee kysyy"}],["$","p",null,{"children":"kävisit kampuksella nii tuntisit"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"JCUJQB7KvyrDxPmafKqaS","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"max-w-5xl mx-auto px-4 sm:px-6","children":[["$","p",null,{"children":"no juuh tota se Tuukka Moilanen nii silt voi salee kysyy"}],["$","p",null,{"children":"kävisit kampuksella nii tuntisit"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null

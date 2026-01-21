@@ -73,18 +73,17 @@ export default function ComputerScene() {
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-        };
+        return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
     const [sceneTop, setSceneTop] = useState(0);
     const [yHeight, setYHeight] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(0);
     const computerRef = React.useRef<HTMLDivElement>(null);
     const { lang } = useLanguage();
 
     const updateDimensions = () => {
+        setWindowHeight(window.innerHeight);
         if (computerRef.current) {
             const rect = computerRef.current.getBoundingClientRect();
             const absoluteBottom = rect.bottom + window.pageYOffset;
@@ -99,20 +98,16 @@ export default function ComputerScene() {
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
-
-    const hasLgBreakpoint = useBreakpoint("lg");
-    const hasMdBreakpoint = useBreakpoint("md");
-    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.5 : hasMdBreakpoint ? 0.4 : 0.3);
+    const sceneBottom = sceneTop + yHeight * 0.5;
     const sceneHeight = sceneBottom - sceneTop;
 
-    const viewportBottom = scrollProgress + (typeof window !== 'undefined' ? window.innerHeight : 0);
+    const viewportBottom = scrollProgress + windowHeight;
     
-    const progress = typeof window !== 'undefined' 
-        ? Math.min(1, Math.max(0, (viewportBottom - sceneTop) / sceneHeight))
-        : 0;
+    const progress = Math.min(1, Math.max(0, (viewportBottom - sceneTop) / sceneHeight));
 
-    const underTableScroll= -(1 - progress) * 50;
-    const ratBuyNowScroll =  (1 - progress) * 25;
+    const hasLgBreakpoint = useBreakpoint("lg");
+    const underTableScroll= -(1 - progress) * (50 * (hasLgBreakpoint ? 2 : 1));
+    const ratBuyNowScroll =  (1 - progress) * (25 * (hasLgBreakpoint ? 2 : 1));
 
     return (
         <Scene className="col-start-1 row-start-1">

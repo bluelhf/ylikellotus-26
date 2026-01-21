@@ -3,6 +3,6 @@
 4:I[97367,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
 7:I[27201,["/ylikellotus-26/_next/static/chunks/ff1a16fafef87110.js","/ylikellotus-26/_next/static/chunks/247eb132b7f7b574.js"],"IconMark"]
-0:{"buildId":"D4aRRBOsQn8TAAc5PpI4c","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"hKv6Sg75qAijSBHzVjo52","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:[["$","title","0",{"children":"Ylikellotus 2026"}],["$","meta","1",{"name":"description","content":"Vuoden 2026 ylikellotus on nyt täällä! Tervetuloa juhlimaan maailman tylsimmille synttäreille. Meillä on pallomeri."}],["$","link","2",{"rel":"icon","href":"/ylikellotus-26/favicon.ico?favicon.51c23352.ico","sizes":"512x512","type":"image/x-icon"}],["$","$L7","3",{}]]

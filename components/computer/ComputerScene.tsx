@@ -101,7 +101,8 @@ export default function ComputerScene() {
 
 
     const hasLgBreakpoint = useBreakpoint("lg");
-    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.4 : 0.3);
+    const hasMdBreakpoint = useBreakpoint("md");
+    const sceneBottom = sceneTop + yHeight * (hasLgBreakpoint ? 0.5 : hasMdBreakpoint ? 0.4 : 0.3);
     const sceneHeight = sceneBottom - sceneTop;
 
     const viewportBottom = scrollProgress + (typeof window !== 'undefined' ? window.innerHeight : 0);
@@ -109,10 +110,9 @@ export default function ComputerScene() {
     const progress = typeof window !== 'undefined' 
         ? Math.min(1, Math.max(0, (viewportBottom - sceneTop) / sceneHeight))
         : 0;
-    console.log("Viewport bottom is at y =", viewportBottom, " scene top is at y =", sceneTop, "progress", progress)
 
-    const underTableScroll = (1 - progress) * 200;
-    const ratBuyNowScroll = -(1 - progress) * 100;
+    const underTableScroll= -(1 - progress) * 50;
+    const ratBuyNowScroll =  (1 - progress) * 25;
 
     return (
         <Scene className="col-start-1 row-start-1">

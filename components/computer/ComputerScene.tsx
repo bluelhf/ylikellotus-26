@@ -46,7 +46,7 @@ const Tab: React.FC<TabProps> = ({ title, onClick, href, isActive, className }) 
             <ExportedImage
                 src={tabMarkerImg}
                 alt="Active Tab Marker"
-                className={`absolute bottom-[2px] left-0 w-full h-[10%] object-fill pointer-events-none ${isActive ? "" : "hidden"}`}
+                className={`absolute bottom-[1%] left-0 w-full h-[20%] object-fill pointer-events-none ${isActive ? "" : "hidden"}`}
                 basePath={nextConfig.basePath}
             />
         </div>

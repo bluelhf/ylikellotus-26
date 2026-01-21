@@ -77,9 +77,10 @@ export default function ComputerScene() {
     }, []);
 
     const [sceneTop, setSceneTop] = useState(0);
-    const [yHeight, setYHeight] = useState(0);
+    const [underTableHeight, setUnderTableHeight] = useState(0);
     const [windowHeight, setWindowHeight] = useState(0);
     const computerRef = React.useRef<HTMLDivElement>(null);
+    const underTableRef = React.useRef<HTMLImageElement>(null);
     const { lang } = useLanguage();
 
     const updateDimensions = () => {
@@ -88,7 +89,11 @@ export default function ComputerScene() {
             const rect = computerRef.current.getBoundingClientRect();
             const absoluteBottom = rect.bottom + window.pageYOffset;
             setSceneTop(absoluteBottom);
-            setYHeight(rect.height);
+        }
+
+        if (underTableRef.current) {
+            const rect = underTableRef.current.getBoundingClientRect();
+            setUnderTableHeight(rect.height);
         }
     };
 
@@ -98,8 +103,8 @@ export default function ComputerScene() {
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
-    const sceneBottom = sceneTop + yHeight * 0.5;
-    const sceneHeight = sceneBottom - sceneTop;
+    const underTableOverlap = 0.4; // portion of under table image that overlaps with computer
+    const sceneHeight = (1 - underTableOverlap) * underTableHeight;
 
     const viewportBottom = scrollProgress + windowHeight;
     
@@ -162,7 +167,7 @@ export default function ComputerScene() {
                      className="grid grid-cols-1 grid-rows-1 items-end relative">
                     <div style={{ transform: `translateY(${underTableScroll}px)` }}
                          className="col-start-1 row-start-1 w-full z-0">
-                        <ExportedImage alt="Under Table" src={poydanalusImg} basePath={nextConfig.basePath} className="w-full h-auto"/>
+                        <ExportedImage ref={underTableRef} alt="Under Table" src={poydanalusImg} basePath={nextConfig.basePath} className="w-full h-auto"/>
                     </div>
 
                     <div style={{ transform: `translateY(${ratBuyNowScroll}px)` }}
